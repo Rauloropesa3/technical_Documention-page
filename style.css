@@ -1,0 +1,66 @@
+#main-doc {
+  height: 1700px;
+  width: 100%;
+  display: block;
+}
+header {
+  padding-top: 5%;
+  font-size: xx-large;
+}
+.express_documentation {
+  text-align: center;
+}
+p {
+  margin-left: 5%;
+}
+code {
+  width: 80%;
+  padding-left: 5%;
+  display: block;
+  padding: 5px;
+  background-color: rgba(140, 143, 146, 0.178);
+  border-radius: 10px;
+}
+aside {
+  background-color: rgb(231, 228, 228);
+  width: 25%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  justify-content: space-evenly;
+}
+#a_reference {
+  color: #0000ff;
+}
+#navbar {
+  display: block;
+  padding-right: 8%;
+}
+section {
+  padding-left: 30%;
+  position: relative;
+}
+a {
+  display: block;
+  width: 100%;
+  font-size: large;
+  text-decoration: none;
+  color: black;
+}
+.nav-link {
+  background-color: #ffffff;
+  border: solid black 1px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  width: 100%;
+  padding-left: 8%;
+  padding-bottom: 5%;
+  padding-top: 10%;
+}
+.nav-link:hover {
+  color: darkred;
+}
+ul {
+  padding-left: 0%;
+}

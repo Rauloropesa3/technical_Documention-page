@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<main id="main-doc">
+    <section id="introduction" class="main-section">
+        <header>Introduction</header>
+        <p>Express is a Node.js web application framework it provides
+            a variety of features for web and mobile applications.
+        </p>
+        <p>With a vast amount of HTTP utility methods and middleware
+            at your fingertips, creating a quality API is fast and easy.
+        </p>
+        <p>Express provides fundamental web application features, without
+            disrupting Node.js' features.
+        </p>
+        <p>Many popular frameworks are based on Express</p>
+    </section>
+    <section id='express()' class="main-section">
+        <header>express()</header><br>
+        <code>
+            $ npm install express --save
+        </code>
+        <p>Creates an Express application. The express() function is a top-level function exported by the express module.</p>
+        <code>
+            const express = require('express')
+            <br>
+            const app = express()
+        </code>
+    </section>
+    <section id="application" class="main-section">
+        <header>Application</header>
+        <p>The app object conventionally denotes the Express application. create it by calling the express()
+            function. </p>
+        <code>
+            const express = require('express')<br>
+              const app = express()<br>
+              app.get('/', function (req, res){
+                  res.send('hello world')
+              })
+              app.listen(3000)
+        </code>
+        <p>The app object has methods for:</p>
+        <ul>
+            <li>hello</li>
+            <li>Routing HTTP requests</li>
+            <li>Configuring middleware</li>
+            <li>Rendering HTML views</li>
+            <li>Registering a template engine</li>
+        </ul>
+    </section>
+    <section id="request" class="main-section">
+        <header>Request</header>
+        <p>The req object represents the HTTP request and has properties for the request query string, parameters
+            , body, HTTP headers, and so on. In this documentation and by convention, the object is always referred to as req 
+            (the HTTP response is res) but its actual name is determined but the parameters to the callback function in which you're working.
+        </p>
+        <p>for example:</p>
+        <code>app.get('/user/:id', function (req, res) {
+            res.send('user' + req.params.id)
+        })
+        </code>
+        <p>can also have:</p>
+        <code>
+            app.get('/user/:id', function(request, response){
+            response.send('user + request.params.id')
+        })
+        </code>
+    </section>
+    <section id="response" class="main-section">
+        <header>Response</header>
+        <p>The res object represents the HTTP response that an Express app sends when it gets an HTTP request.
+        <br>
+        <p>In this documention and by convention, the object is always referred to as res(the HTTP request is req)nut its actual name is determined by the
+            parameters to the callback function in which you're working. </p>
+        </p>
+        <br>
+        <p>for example:</p>
+        <code>app.get('/user/:id', function (req, res){
+            res.send('user' + req.params.id)
+        })</code>
+        <p>can also have:</p>
+        <code>app.get('user/:id', function (request, response){
+            response.send('user' + request.params.id)})</code>
+    </section>
+    <section id="router" class="main-section">
+        <header>Router</header>
+        <p>A router objest is isolated instance of middleware and routes. You can think oof it as a "mini-application," capable only of
+            performing middleware and routing functions. Every Express application has a built-in app router.
+        </p>
+        <br>
+        <p>A router behaves like middleware itself, so you can use it as an argument to app.use() or as the argument to another router's use() method.</p>
+        <br>
+        <p>The express object has a Router() method that creates a new router object.</p>
+        <br>
+        <p>Once you've created a router object, you can add middleware abd HTTP method routes to it
+            just like an appliction. For example:
+        </p>
+        <code>
+            // invoked for any requests passed to this router 
+            <br>
+            router.use(function (req, res, next){ <br>
+                // ..some login here .. like my other middleware <br> <br>
+                next()
+            })
+            <br>
+            <br>
+            //will handle any request that ends in /events <br>
+            // depends on where the router is "use()'d" <br><br>
+            router.get('/events', function(req, res, next){
+                //..
+            })
+        </code>
+        <p>You can then use a router for a particular root URL in this way separating your routes into files or even mini-apps.</p>
+        <code>
+            // only requests to /calendar/* will be sent to our "router"<br>
+            app.use('/calendar', router)
+        </code>
+    </section><br>
+    <section id="reference" class="main-section">
+           <header>Reference</header>
+        <p>The documentation on this page was taken from<a id="a_reference" href="https://expressjs.com/en/5x/api.html#res">Expressjs.com</a></p>
+           </section>
+<aside>
+    <nav id="navbar">
+        <header class="express_documentation">Express Documentation</header>
+      <ul>
+        <a class="nav-link" href="#introduction">Introduction</a>
+        <a class="nav-link " href="#express()">express()</a>
+        <a class="nav-link " href="#application">Application</a>
+        <a class="nav-link " href="#request">Request</a>
+        <a class="nav-link " href="#response">Response</a>
+        <a class="nav-link " href="#router">Router</a>
+        <a class="nav-link"  href="#reference">Reference</a>
+    </ul>
+    </nav>
+</aside>
+</main>
+<style>
+   @media only screen and (max-width: 560px) {
+  #main-doc {
+    height: 1000px;
+   display: block;
+  }
+  #introduction{
+      margin-top: 55%;
+  }
+section{
+    padding-left: 0%;
+}
+ aside{
+     width: 100%;
+     background-color: blueviolet;
+     position: fixed;
+     top: 0;
+     height: 200px;
+     overflow: scroll;
+ }
+#navbar{
+    display: block;
+    width: 100%;
+    background-color: rgb(133, 133, 133);
+}
+.nav-link{
+    background-color: rgba(255, 255, 255, 0.767);
+}
+a{
+    display: flex;
+ font-size: x-large;
+
+}
+}
+
+</style>
+<body>
+   <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> 
+</body>
+</html>
